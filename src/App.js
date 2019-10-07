@@ -1,26 +1,63 @@
 import React from 'react';
-import logo from './logo.svg';
+import axios from 'axios';
+import RestaurantList from './Components/RestaurantListComponent/RestaurantList';
+import Nav from './Components/Nav';
+import SortSelect from './Components/SortSelectComponent/SortSelect'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export class App extends React.Component {
+  constructor (props) {
+    super(props); 
+    this.state = {
+      data: [],
+      orderBy: 'ABC...'
+    }
+    //axios.get('https://recruiting-datasets.s3.us-east-2.amazonaws.com/data_melp.json')
+    axios.get('./data/data.json')
+    .then(x => {
+      console.log(x.data);
+      this.setState ({data: x.data});
+      console.log(this.state);
+    });
+    this.handleSortChange = this.handleSortChange.bind(this)
+  }
+  handleSortChange(selectValue) {
+    console.log('Selected value: ' + selectValue);
+    this.setState({orderBy: selectValue})
+    console.log(this.state);
+    if(selectValue === 'ABC...') {
+      this.sortAlphabetically(this.state.data);
+    } else {
+      this.sortByRating(this.state.data);
+    }
+  }
+  sortAlphabetically(data)  {
+    return data.sort((a, b) => {
+        var nameA = a.name.toUpperCase();
+        var nameB = b.name.toUpperCase();
+        return (nameA < nameB) ? -1 : (nameA > nameB) ? 1 : 0;
+    });
+  }
+  sortByRating(data) {
+    return data.sort((a, b) => {
+        var ratingA = a.rating;
+        var ratingB = b.rating;
+        return (ratingA > ratingB) ? -1 : (ratingA < ratingB) ? 1 : 0;
+    });
+  }
+  render() {
+    const {data} = this.state
+    return (
+      <div className="App">
+        <Nav/>
+        <SortSelect onChange={this.handleSortChange}/>
+        <RestaurantList data = {data}/>
+      </div>
+    );
+  }
+
+  
 }
 
 export default App;
