@@ -4,6 +4,7 @@ import RestaurantList from './Components/RestaurantListComponent/RestaurantList'
 import Nav from './Components/Nav';
 import SortSelect from './Components/SortSelectComponent/SortSelect'
 import './App.css';
+import ScrollUpButton from 'react-scroll-up-button';
 
 
 export class App extends React.Component {
@@ -13,9 +14,9 @@ export class App extends React.Component {
       data: [],
       orderBy: 'ABC...'
     }
-    //axios.get('https://recruiting-datasets.s3.us-east-2.amazonaws.com/data_melp.json')
-    axios.get('./data/data.json')
-    .then(x => {
+      axios.get('./data/data.json')
+      //axios.get('https://recruiting-datasets.s3.us-east-2.amazonaws.com/data_melp.json')
+      .then(x => {
       console.log(x.data);
       this.setState ({data: x.data});
       console.log(this.state);
@@ -53,6 +54,7 @@ export class App extends React.Component {
         <Nav/>
         <SortSelect onChange={this.handleSortChange}/>
         <RestaurantList data = {data}/>
+        <ScrollUpButton />
       </div>
     );
   }
