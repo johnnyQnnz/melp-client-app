@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e9cac3d967bbd7fefa7c87243fef277d",
+    "revision": "88e66b663d0f39aaf03e3089f7899d8e",
     "url": "/melp-client-app/index.html"
   },
   {
-    "revision": "104f117df3f03e9158ad",
-    "url": "/melp-client-app/static/css/main.86046ddb.chunk.css"
+    "revision": "f98aa7fc480fcc415b31",
+    "url": "/melp-client-app/static/css/main.6581901d.chunk.css"
   },
   {
     "revision": "68c7dbae8dbbe5131bd8",
     "url": "/melp-client-app/static/js/2.6299f72a.chunk.js"
   },
   {
-    "revision": "104f117df3f03e9158ad",
-    "url": "/melp-client-app/static/js/main.c6edc40e.chunk.js"
+    "revision": "f98aa7fc480fcc415b31",
+    "url": "/melp-client-app/static/js/main.23bc1e2d.chunk.js"
   },
   {
     "revision": "f8fea679ab368bfdd0af",
