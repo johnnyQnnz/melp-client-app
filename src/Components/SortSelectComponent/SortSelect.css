@@ -5,6 +5,13 @@
     padding-left: 0px;
     background-color: white;
     margin: 80px 10px 20px;
+    transition-property: all;
+    transition-duration: 0.3s;
+}
+.sortSelect:hover {
+    transform: scale(1.02,1.02);
+    transition-property: all;
+    transition-duration: 0.3s;
 }
 .sortSelect p {
     margin-left: 20px;
