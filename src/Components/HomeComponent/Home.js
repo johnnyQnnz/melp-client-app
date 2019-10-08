@@ -16,8 +16,9 @@ export default class Home extends React.Component {
           orderBy: 'ABC...'
         }
         if(process.env.NODE_ENV === "production") {
+            axios.get('./data/data.json')
             //fetch('https://recruiting-datasets.s3.us-east-2.amazonaws.com/data_melp.json')
-            axios.get('https://recruiting-datasets.s3.us-east-2.amazonaws.com/data_melp.json', { method: 'GET', headers: {'Access-Control-Allow-Origin': '*','Content-Type': 'application/json', mode: 'no-cors'}})
+            //axios.get('https://recruiting-datasets.s3.us-east-2.amazonaws.com/data_melp.json', { method: 'GET', headers: {'Access-Control-Allow-Origin': '*','Content-Type': 'application/json', mode: 'no-cors'}})
             .then(x => {
             console.log(x.data);
             this.setState ({data: x.data});

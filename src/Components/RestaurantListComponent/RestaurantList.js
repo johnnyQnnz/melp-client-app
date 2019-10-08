@@ -5,6 +5,16 @@ export default class RestaurantList extends React.Component {
     constructor (props){
         super(props);
     }
+    getRandomImage(){
+        const arr = [
+            "https://res.cloudinary.com/dipt6v4xr/image/upload/v1570469514/restaurant-chocolat.jpg",
+            "https://res.cloudinary.com/dipt6v4xr/image/upload/v1570537769/restaurant04.jpg",
+            "https://res.cloudinary.com/dipt6v4xr/image/upload/v1570537769/restaurant02.jpg",
+            "https://res.cloudinary.com/dipt6v4xr/image/upload/v1570537768/restaurant03.jpg",
+            "https://res.cloudinary.com/dipt6v4xr/image/upload/v1570537769/restaurant05.jpg"
+        ];
+        return arr[Math.floor(Math.random() * 5)];
+    }
     render () {
         const {data} = this.props;
         //console.log(data);
@@ -31,7 +41,7 @@ export default class RestaurantList extends React.Component {
                             <div className="imageAddressDiv">
                                 <div className="imageDiv">
                                     <img 
-                                    src = "https://res.cloudinary.com/dipt6v4xr/image/upload/v1570469514/restaurant-chocolat.jpg"
+                                    src = {this.getRandomImage()}
                                     alt = "Restaurant "
                                     />
                                 </div>
