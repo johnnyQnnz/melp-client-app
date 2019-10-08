@@ -1,4 +1,5 @@
 import React from 'react';
+import './SortSelect.css';
 
 export default class SortSelect extends React.Component {
     constructor (props) {
@@ -13,7 +14,7 @@ export default class SortSelect extends React.Component {
     }
     render () {
         return (
-            <div>
+            <div className="sortSelect">
                 <p>Order by: </p>
                 <select onChange={this.handleChange}>
                     <option>ABC...</option>

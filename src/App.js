@@ -15,7 +15,8 @@ export class App extends React.Component {
       orderBy: 'ABC...'
     }
       axios.get('./data/data.json')
-      //axios.get('https://recruiting-datasets.s3.us-east-2.amazonaws.com/data_melp.json')
+      //fetch('https://recruiting-datasets.s3.us-east-2.amazonaws.com/data_melp.json')
+      //axios.get('https://recruiting-datasets.s3.us-east-2.amazonaws.com/data_melp.json', { method: 'GET', headers: {'Access-Control-Allow-Origin': '*','Content-Type': 'application/json', mode: 'no-cors'}})
       .then(x => {
       console.log(x.data);
       this.setState ({data: x.data});
