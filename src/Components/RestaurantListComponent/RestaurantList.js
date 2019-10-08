@@ -35,6 +35,12 @@ export default class RestaurantList extends React.Component {
                                     alt = "Restaurant "
                                     />
                                 </div>
+                                <div className="fbDiv">
+                                <div className="fb-like" 
+                                data-href="https://johnnyqnnz.github.io/melp-client-app/" 
+                                data-width="" data-layout="button_count" data-action="like" 
+                                data-size="small" data-show-faces="true" data-share="true"></div>
+                                </div>
                                 <div className="addressDiv">
                                     <h4>Address:</h4>
                                     <p>{x.address.street}</p>

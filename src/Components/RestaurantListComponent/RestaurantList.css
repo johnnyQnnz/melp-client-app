@@ -47,6 +47,16 @@
     display: flex;
     flex-direction: column;
 }
+.fbDiv {
+    display:flex;
+    flex-direction: row;
+    
+}
+.fbDiv div {
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: 15px;
+}
 .addressDiv {
     padding-left: 20px;
 }
