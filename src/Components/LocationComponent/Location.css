@@ -2,6 +2,13 @@
     margin-top: 80px;
 }
 .mapDiv {
-    height: 400px;  /* The height is 400 pixels */
+    margin-top: 20px;
+    height: 200px;  /* The height is 400 pixels */
     width: 100%;  /* The width is the width of the web page */
+}
+
+@media (min-width: 600px) {
+    .mapDiv {
+        width: 50%;
+    }
 }

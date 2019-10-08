@@ -6128,6 +6128,11 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+math.js@^1.1.45:
+  version "1.1.45"
+  resolved "https://registry.yarnpkg.com/math.js/-/math.js-1.1.45.tgz#531db8f275fe0dff7d7f395de07097888da7da05"
+  integrity sha512-+PBHYgVGB/goGsCksJTvBAmIowBeXHOlvwqQQgBdiJ7KStO8KtNkK1edFC293iGpoPX5P1tZs9Yu6QCV9c0hQg==
+
 md5.js@^1.3.4:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/md5.js/-/md5.js-1.3.5.tgz#b5d07b8e3216e3e27cd728d72f70d1e6a342005f"

@@ -1,19 +1,24 @@
 import React from 'react';
 import axios from 'axios';
 import Nav from '../Nav';
+import ResultList from '../ResultsListComponent/ResultList';
+import ResultsDetails from '../ResultsListComponent/ResultsDetails';
 import './Location.css';
 import { Map, GoogleApiWrapper, Marker} from 'google-maps-react';
+
 
 export class Location extends React.Component {
     constructor (props) {
         super(props); 
         this.state = {
-          data: [],
-          nearbyRestaurants: [],
-          userLocation: {
-              lat: 0.0,
-              lng: 0.0
-          }
+            data: [],
+            nearbyRestaurants: [],
+            userLocation: {
+                lat: 0.0,
+                lng: 0.0
+            },
+            searchRadius: 10.0,
+            searched: false
         }
         axios.get('../../data/data.json')
         //fetch('https://recruiting-datasets.s3.us-east-2.amazonaws.com/data_melp.json')
@@ -23,7 +28,8 @@ export class Location extends React.Component {
         this.setState ({data: x.data});
         console.log(this.state);
         });
-        // this.handleSortChange = this.handleSortChange.bind(this)
+        this.changeSearchRadius = this.changeSearchRadius.bind(this);
+        this.searchRadius = this.searchRadius.bind(this)
     }
     async componentDidMount() {
         const { lat, lng } = await this.getcurrentLocation();
@@ -54,19 +60,26 @@ export class Location extends React.Component {
     }
     addMarker = (location, map) => {
         this.setState({
-            userLocation: location
+            userLocation: {
+                lat: location.lat(),
+                lng: location.lng()
+            }
         });
+        console.log(this.state.userLocation)
         map.panTo(location);
-      };
-    logCoordinates(e) {
-        console.log(e.google);
+    };
+    changeSearchRadius(e) {
+        //console.log(e);
+        this.setState({
+            searchRadius: e.target.value
+        });
+        //console.log(this.state);
     }
     render () {
         const mapStyles = {
             width: '100%',
-            height: '400px',
+            height: '200px',
         };
-        const nearbyRestaurantsCoords = [];
         return (
             <div>
                 <Nav/>
@@ -75,10 +88,10 @@ export class Location extends React.Component {
                         <h3>Click on the map to add a marker!</h3>
                     </div>
                     <div>
-                        <p>Search within a radius of: </p><input type="number"/> Kilometers
+                        <p>Search within a radius of: </p><input type="number" defaultValue={this.state.searchRadius} onChange={this.changeSearchRadius}/> Kilometers
                     </div>
                     <div>
-                        <button>Search</button>
+                        <button onClick={this.searchRadius}>Search</button>
                     </div>
                 </div>
                 <div className="mapDiv">
@@ -88,12 +101,6 @@ export class Location extends React.Component {
                     style={mapStyles}
                     initialCenter={{ lat: 47.444, lng: -122.176}}
                     onClick={(t, map, c) => {
-                        // console.log('t: ');
-                        // console.log(t);
-                        // console.log('map: ');
-                        // console.log(map);
-                        // console.log('c: ');
-                        // console.log(c);
                         this.addMarker(c.latLng, map)
                     }
                     }
@@ -101,8 +108,60 @@ export class Location extends React.Component {
                     <Marker position={this.state.userLocation} />
                 </Map>
                 </div>
+                {
+                    this.state.searched && 
+                    <div className="resultsDiv">
+                        <h5>Results: </h5>
+                    </div>
+                }
+                { this.state.nearbyRestaurants.length > 0 && <ResultsDetails data={this.state.nearbyRestaurants}/>}
+                { this.state.nearbyRestaurants.length > 0 && <ResultList data={this.state.nearbyRestaurants}/> }
+                {
+                    this.state.searched && this.state.nearbyRestaurants.length === 0 && <h3>No results. Try another search.</h3>
+                }
+                
             </div>
         );
+    }
+    searchRadius() {
+        console.log(this.state);
+        this.setState({searched: true});
+        const radius = this.state.searchRadius;
+        const restList = this.state.data;
+        const current = this.state.userLocation;
+        const nearbyRes = [];
+        for(let i = 0; i < restList.length; i++) {
+            let dist = this.distanceBetween(current.lat, current.lng, restList[i].address.location.lat, restList[i].address.location.lng, 'K');
+            console.log(dist);
+            console.log('distance between user marker and ' + restList[i].name + ': '+ dist);
+            restList[i].distanceToUser = dist;
+            if (dist <= radius) {
+                nearbyRes.push(restList[i]);
+            }
+        }
+        console.log(nearbyRes);
+        this.setState({nearbyRestaurants: nearbyRes});
+    }
+    distanceBetween(lat1, lon1, lat2, lon2, unit) {
+        if ((lat1 == lat2) && (lon1 == lon2)) {
+            return 0;
+        }
+        else {
+            var radlat1 = Math.PI * lat1/180;
+            var radlat2 = Math.PI * lat2/180;
+            var theta = lon1-lon2;
+            var radtheta = Math.PI * theta/180;
+            var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+            if (dist > 1) {
+                dist = 1;
+            }
+            dist = Math.acos(dist);
+            dist = dist * 180/Math.PI;
+            dist = dist * 60 * 1.1515;
+            if (unit=="K") { dist = dist * 1.609344 }
+            if (unit=="N") { dist = dist * 0.8684 }
+            return dist;
+        }
     }
 }
 export default GoogleApiWrapper({
