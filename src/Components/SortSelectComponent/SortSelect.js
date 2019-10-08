@@ -23,7 +23,9 @@ export default class SortSelect extends React.Component {
                     <option>ABC...</option>
                     <option>Rating</option>
                 </select>
-                <Link to="/location"><button>Search by location</button></Link>
+                <div>
+                    <Link to="/location"><button>Search by location</button></Link>
+                </div>
             </div>
             </div>
         );

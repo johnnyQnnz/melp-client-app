@@ -3,12 +3,24 @@
 }
 .mapDiv {
     margin-top: 20px;
-    height: 200px;  /* The height is 400 pixels */
+    height: 300px;  /* The height is 400 pixels */
     width: 100%;  /* The width is the width of the web page */
+}
+.searchButtonDiv button {
+    background-color: #00A2FF;
+    color: white;
+    font-weight: 400;
+    margin-top: 20px;
+    width: 100px;
+    border: 0;
+    height: 30px;
+    border-radius: 6px 6px;
+}
+
+@media (min-width: 425px) {
+    
 }
 
 @media (min-width: 600px) {
-    .mapDiv {
-        width: 50%;
-    }
+    
 }

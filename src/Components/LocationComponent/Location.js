@@ -5,6 +5,7 @@ import ResultList from '../ResultsListComponent/ResultList';
 import ResultsDetails from '../ResultsListComponent/ResultsDetails';
 import './Location.css';
 import { Map, GoogleApiWrapper, Marker} from 'google-maps-react';
+import ScrollUpButton from 'react-scroll-up-button';
 
 
 export class Location extends React.Component {
@@ -14,13 +15,13 @@ export class Location extends React.Component {
             data: [],
             nearbyRestaurants: [],
             userLocation: {
-                lat: 0.0,
-                lng: 0.0
+                lat: 19.432608,
+                lng: -99.133209
             },
             searchRadius: 10.0,
             searched: false
         }
-        axios.get('../../data/data.json')
+        axios.get('./data/data.json')
         //fetch('https://recruiting-datasets.s3.us-east-2.amazonaws.com/data_melp.json')
         //axios.get('https://recruiting-datasets.s3.us-east-2.amazonaws.com/data_melp.json', { method: 'GET', headers: {'Access-Control-Allow-Origin': '*','Content-Type': 'application/json', mode: 'no-cors'}})
         .then(x => {
@@ -78,8 +79,12 @@ export class Location extends React.Component {
     render () {
         const mapStyles = {
             width: '100%',
-            height: '200px',
+            height: '300px',
         };
+        let nearbyMarkers = this.state.nearbyRestaurants.map( x => {
+            let markerPos = x.address.location;
+            return <Marker key={x.id} position={markerPos}/>
+        })
         return (
             <div>
                 <Nav/>
@@ -88,9 +93,9 @@ export class Location extends React.Component {
                         <h3>Click on the map to add a marker!</h3>
                     </div>
                     <div>
-                        <p>Search within a radius of: </p><input type="number" defaultValue={this.state.searchRadius} onChange={this.changeSearchRadius}/> Kilometers
+                        <p>Search within a radius of: </p><input type="number" defaultValue={this.state.searchRadius} onChange={this.changeSearchRadius}/> meters
                     </div>
-                    <div>
+                    <div className="searchButtonDiv">
                         <button onClick={this.searchRadius}>Search</button>
                     </div>
                 </div>
@@ -99,27 +104,28 @@ export class Location extends React.Component {
                     google={this.props.google}
                     zoom={8}
                     style={mapStyles}
-                    initialCenter={{ lat: 47.444, lng: -122.176}}
+                    initialCenter={{ lat: this.state.userLocation.lat, lng: this.state.userLocation.lng}}
                     onClick={(t, map, c) => {
                         this.addMarker(c.latLng, map)
                     }
                     }
                 >
-                    <Marker position={this.state.userLocation} />
+                    <Marker position={this.state.userLocation} icon = {"http://maps.google.com/mapfiles/ms/icons/blue-dot.png"} />
+                    {this.state.searched && nearbyMarkers}
                 </Map>
                 </div>
                 {
                     this.state.searched && 
                     <div className="resultsDiv">
-                        <h5>Results: </h5>
+                        <h5>Reccomended nearby places: </h5>
                     </div>
                 }
                 { this.state.nearbyRestaurants.length > 0 && <ResultsDetails data={this.state.nearbyRestaurants}/>}
-                { this.state.nearbyRestaurants.length > 0 && <ResultList data={this.state.nearbyRestaurants}/> }
+                { this.state.nearbyRestaurants.length > 0 && <ResultList className="resultsListDiv" data={this.state.nearbyRestaurants}/> }
                 {
-                    this.state.searched && this.state.nearbyRestaurants.length === 0 && <h3>No results. Try another search.</h3>
+                    this.state.searched && this.state.nearbyRestaurants.length === 0 && <h3>No results. Try another point.</h3>
                 }
-                
+                <ScrollUpButton />
             </div>
         );
     }
@@ -143,7 +149,7 @@ export class Location extends React.Component {
         this.setState({nearbyRestaurants: nearbyRes});
     }
     distanceBetween(lat1, lon1, lat2, lon2, unit) {
-        if ((lat1 == lat2) && (lon1 == lon2)) {
+        if ((lat1 === lat2) && (lon1 === lon2)) {
             return 0;
         }
         else {
@@ -158,9 +164,9 @@ export class Location extends React.Component {
             dist = Math.acos(dist);
             dist = dist * 180/Math.PI;
             dist = dist * 60 * 1.1515;
-            if (unit=="K") { dist = dist * 1.609344 }
-            if (unit=="N") { dist = dist * 0.8684 }
-            return dist;
+            if (unit==="K") { dist = dist * 1.609344 }
+            if (unit==="N") { dist = dist * 0.8684 }
+            return dist*1000;
         }
     }
 }

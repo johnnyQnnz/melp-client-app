@@ -36,7 +36,7 @@ export default class ResultsDetails extends React.Component {
         const avrg = this.calculateAverage(arr);
         const stdDev = this.calculateStdDev(arr);
         return (
-            <div className="resultsListDiv">
+            <div className="resultsDetailsDiv">
                 <p>Restaurants found: {data.length}</p>
                 <p>Average rating: {avrg.toFixed(2)}</p>
                 <p>Rating standard deviation: {stdDev.toFixed(2)}</p>
