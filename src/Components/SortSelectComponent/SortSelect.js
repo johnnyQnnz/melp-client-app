@@ -16,7 +16,7 @@ export default class SortSelect extends React.Component {
     render () {
         return (
             <div>
-            <h2 className="sortSelectH2"><span className="fa fa-search checked"/> Restaurant search</h2>
+            <h2 className="sortSelectH2"><span className="fa fa-map-marker checked"/> Restaurant explore</h2>
             <div className="sortSelect">
                 <div className="orderByDiv">
                     <p>Order by: </p>
@@ -25,7 +25,7 @@ export default class SortSelect extends React.Component {
                         <option>Rating</option>
                     </select>
                 </div>
-                <div>
+                <div className="locationButtonDiv">
                     <Link to="/location"><button>Search by location</button></Link>
                 </div>
             </div>
