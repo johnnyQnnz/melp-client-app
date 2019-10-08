@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Route, Link, Switch} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './SortSelect.css';
 
 export default class SortSelect extends React.Component {

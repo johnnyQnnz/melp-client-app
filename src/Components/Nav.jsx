@@ -1,6 +1,6 @@
 import React from 'react';
 import './Nav.css';
-import { HashRouter, Route, Link, Switch} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default class Nav extends React.Component {
     render () {

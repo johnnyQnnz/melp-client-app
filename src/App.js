@@ -1,12 +1,8 @@
 import React from 'react';
 import Home from './Components/HomeComponent/Home';
 import Location from './Components/LocationComponent/Location';
-import { HashRouter, Route, Link, Switch} from 'react-router-dom';
-import RestaurantList from './Components/RestaurantListComponent/RestaurantList';
-import Nav from './Components/Nav';
-import SortSelect from './Components/SortSelectComponent/SortSelect'
+import { HashRouter, Route, Switch} from 'react-router-dom';
 import './App.css';
-import ScrollUpButton from 'react-scroll-up-button';
 
 export class App extends React.Component {
   
