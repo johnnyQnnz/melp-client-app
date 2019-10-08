@@ -1,4 +1,5 @@
 import React from 'react';
+import { HashRouter, Route, Link, Switch} from 'react-router-dom';
 import './SortSelect.css';
 
 export default class SortSelect extends React.Component {
@@ -22,6 +23,7 @@ export default class SortSelect extends React.Component {
                     <option>ABC...</option>
                     <option>Rating</option>
                 </select>
+                <Link to="/location"><button>Search by location</button></Link>
             </div>
             </div>
         );

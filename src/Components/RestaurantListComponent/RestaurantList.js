@@ -25,7 +25,7 @@ export default class RestaurantList extends React.Component {
                             <div className="nameRatingDiv">
                                 <div className ="nameDiv"><h3>{x.name.toUpperCase()}</h3></div>
                                 <div className ="ratingDiv">
-                                    <p>Rating: {x.rating} / 5</p>
+                                    <p>Rating: {x.rating} / 4</p>
                                 </div>
                             </div>
                             <div className="imageAddressDiv">
