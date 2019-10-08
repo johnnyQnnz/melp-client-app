@@ -14,12 +14,15 @@ export default class SortSelect extends React.Component {
     }
     render () {
         return (
+            <div>
+            <h2 className="sortSelectH2">Restaurant search</h2>
             <div className="sortSelect">
                 <p>Order by: </p>
                 <select onChange={this.handleChange}>
                     <option>ABC...</option>
                     <option>Rating</option>
                 </select>
+            </div>
             </div>
         );
     }
