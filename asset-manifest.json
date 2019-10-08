@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/melp-client-app/static/css/main.f27a2113.chunk.css",
+    "main.js": "/melp-client-app/static/js/main.20324e0e.chunk.js",
+    "main.js.map": "/melp-client-app/static/js/main.20324e0e.chunk.js.map",
+    "runtime-main.js": "/melp-client-app/static/js/runtime-main.cfffe2ac.js",
+    "runtime-main.js.map": "/melp-client-app/static/js/runtime-main.cfffe2ac.js.map",
+    "static/js/2.b015f8ff.chunk.js": "/melp-client-app/static/js/2.b015f8ff.chunk.js",
+    "static/js/2.b015f8ff.chunk.js.map": "/melp-client-app/static/js/2.b015f8ff.chunk.js.map",
+    "index.html": "/melp-client-app/index.html",
+    "precache-manifest.b0826cdb2b411632ad209067572b994f.js": "/melp-client-app/precache-manifest.b0826cdb2b411632ad209067572b994f.js",
+    "service-worker.js": "/melp-client-app/service-worker.js",
+    "static/css/main.f27a2113.chunk.css.map": "/melp-client-app/static/css/main.f27a2113.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cfffe2ac.js",
+    "static/js/2.b015f8ff.chunk.js",
+    "static/css/main.f27a2113.chunk.css",
+    "static/js/main.20324e0e.chunk.js"
+  ]
+}
