@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/melp-client-app/static/css/main.9a1a89e8.chunk.css",
-    "main.js": "/melp-client-app/static/js/main.f5ed6dff.chunk.js",
-    "main.js.map": "/melp-client-app/static/js/main.f5ed6dff.chunk.js.map",
+    "main.css": "/melp-client-app/static/css/main.99f7b16c.chunk.css",
+    "main.js": "/melp-client-app/static/js/main.d8d67ba8.chunk.js",
+    "main.js.map": "/melp-client-app/static/js/main.d8d67ba8.chunk.js.map",
     "runtime-main.js": "/melp-client-app/static/js/runtime-main.cfffe2ac.js",
     "runtime-main.js.map": "/melp-client-app/static/js/runtime-main.cfffe2ac.js.map",
-    "static/js/2.0bf30e02.chunk.js": "/melp-client-app/static/js/2.0bf30e02.chunk.js",
-    "static/js/2.0bf30e02.chunk.js.map": "/melp-client-app/static/js/2.0bf30e02.chunk.js.map",
+    "static/js/2.5c3e2645.chunk.js": "/melp-client-app/static/js/2.5c3e2645.chunk.js",
+    "static/js/2.5c3e2645.chunk.js.map": "/melp-client-app/static/js/2.5c3e2645.chunk.js.map",
     "index.html": "/melp-client-app/index.html",
-    "precache-manifest.d22b3853355ba935b5d00cb037ed769c.js": "/melp-client-app/precache-manifest.d22b3853355ba935b5d00cb037ed769c.js",
+    "precache-manifest.2ed635001f21743f761b5129fb641425.js": "/melp-client-app/precache-manifest.2ed635001f21743f761b5129fb641425.js",
     "service-worker.js": "/melp-client-app/service-worker.js",
-    "static/css/main.9a1a89e8.chunk.css.map": "/melp-client-app/static/css/main.9a1a89e8.chunk.css.map"
+    "static/css/main.99f7b16c.chunk.css.map": "/melp-client-app/static/css/main.99f7b16c.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.cfffe2ac.js",
-    "static/js/2.0bf30e02.chunk.js",
-    "static/css/main.9a1a89e8.chunk.css",
-    "static/js/main.f5ed6dff.chunk.js"
+    "static/js/2.5c3e2645.chunk.js",
+    "static/css/main.99f7b16c.chunk.css",
+    "static/js/main.d8d67ba8.chunk.js"
   ]
 }
