@@ -3,8 +3,7 @@
 }
 .sortSelect {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
     padding-left: 0px;
     padding-top: 10px;
@@ -20,17 +19,18 @@
     transition-duration: 0.3s;
 }
 .sortSelect p {
-    margin-left: 20px;
+    margin-bottom: 4px;
 }
 .sortSelect select {
-    margin-left: 20px;
+    width: 150px;
+    padding-left: 20px;
+    text-align: center;
     border-radius: 6px 6px;
     border: 0;
-    width: 100px;
     height: 30px;
     background-color: #ffaa01;
     color: white;
-    margin-right: 20px;
+    -webkit-appearance:none;margin-bottom: 20px;
 }
 .sortSelect:hover {
     -moz-box-shadow:    3px 3px 5px 6px #ccc;
@@ -38,14 +38,36 @@
     box-shadow: 3px 3px 5px 6px #ccc;
 }
 .sortSelect button{
+    width: 150px;
+    height: 30px;
     background-color: #00A2FF;
     color: white;
     font-weight: 400;
     border: 0;
-    height: 30px;
     border-radius: 6px 6px;
-}
-.sortSelect a {
-    margin-left: 20px;
+    transition-property: all;
+    transition-duration: 0.3s;
 }
 
+.sortSelect button:hover {
+    background-color: rgb(108, 201, 255);
+    transition-property: all;
+    transition-duration: 0.3s;
+}
+
+@media (min-width: 500px) {
+    .orderByDiv {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .orderByDiv p, .orderByDiv select {
+        margin: 0;
+        margin-right: 5px;
+    }
+    .sortSelect {
+        flex-direction: row;
+        align-items: center;
+        padding-left: 20px;
+    }
+}

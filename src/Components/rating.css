@@ -1,0 +1,13 @@
+.ratingDiv {
+
+}
+.ratingDiv .StarRatingDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 20px;
+}
+.StarRatingDiv .checked {
+    color: #ffaa01;
+}

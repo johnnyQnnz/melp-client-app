@@ -1,5 +1,6 @@
 import React from 'react';
 import './RestaurantList.css';
+import StarRating from '../StarRating';
 
 export default class RestaurantList extends React.Component {
     constructor (props){
@@ -35,7 +36,8 @@ export default class RestaurantList extends React.Component {
                             <div className="nameRatingDiv">
                                 <div className ="nameDiv"><h3>{x.name.toUpperCase()}</h3></div>
                                 <div className ="ratingDiv">
-                                    <p>Rating: {x.rating} / 4</p>
+                                    {/* <p>Rating: {x.rating} / 4</p> */}
+                                    <StarRating rating = {x.rating}/>
                                 </div>
                             </div>
                             <div className="imageAddressDiv">
@@ -52,7 +54,7 @@ export default class RestaurantList extends React.Component {
                                 data-size="small" data-show-faces="true" data-share="true"></div>
                                 </div>
                                 <div className="addressDiv">
-                                    <h4>Address:</h4>
+                                    <h4><span className="fa fa-map-marker checked"/>  Address:</h4>
                                     <p>{x.address.street}</p>
                                     <p>{x.address.city}</p>
                                     <p>{x.address.state}</p>
@@ -60,7 +62,7 @@ export default class RestaurantList extends React.Component {
                             </div>
                             <div className="contactIdDiv">
                                 <div className="contactDiv">
-                                    <h4>Contact:</h4>
+                                    <h4><span className="fa fa-user checked"/> Contact:</h4>
                                     <p><a href={x.contact.site} target="_blank">{x.contact.site}</a></p>
                                     <p>{x.contact.email}</p>
                                     <p>{x.contact.phone}</p>

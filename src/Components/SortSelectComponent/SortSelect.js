@@ -16,13 +16,15 @@ export default class SortSelect extends React.Component {
     render () {
         return (
             <div>
-            <h2 className="sortSelectH2">Restaurant search</h2>
+            <h2 className="sortSelectH2"><span className="fa fa-search checked"/> Restaurant search</h2>
             <div className="sortSelect">
-                <p>Order by: </p>
-                <select onChange={this.handleChange}>
-                    <option>ABC...</option>
-                    <option>Rating</option>
-                </select>
+                <div className="orderByDiv">
+                    <p>Order by: </p>
+                    <select onChange={this.handleChange}>
+                        <option>ABC...</option>
+                        <option>Rating</option>
+                    </select>
+                </div>
                 <div>
                     <Link to="/location"><button>Search by location</button></Link>
                 </div>
