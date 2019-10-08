@@ -66,12 +66,16 @@ export class Location extends React.Component {
             width: '100%',
             height: '400px',
         };
+        const nearbyRestaurantsCoords = [];
         return (
             <div>
                 <Nav/>
                 <div className="searchDiv">
                     <div>
-                        <p>Search within a radius of: </p><input type="number"/> meters
+                        <h3>Click on the map to add a marker!</h3>
+                    </div>
+                    <div>
+                        <p>Search within a radius of: </p><input type="number"/> Kilometers
                     </div>
                     <div>
                         <button>Search</button>
