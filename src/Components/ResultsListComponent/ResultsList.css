@@ -30,7 +30,7 @@
     font-size: 16pt
 }
 
-.resultsListItemDiv p {
+.resultsListItemDiv .StarRatingDiv, .resultsListItemDiv p {
     padding-left: 20px;
 }
 

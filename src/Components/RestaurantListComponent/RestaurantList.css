@@ -22,6 +22,8 @@
 .nameRatingDiv {
     display: flex;
     flex-direction: row;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 .nameRatingDiv div {
