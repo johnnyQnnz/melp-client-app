@@ -2,6 +2,7 @@
     margin-top: 80px;
 }
 .sortSelect {
+    border-radius: 3px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,7 +10,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: white;
-    margin: 20px 10px 20px;
+    margin: 20px 20px 20px;
     transition-property: all;
     transition-duration: 0.3s;
 }
